@@ -1,4 +1,13 @@
-name="hono-minimal"
-main="src/index.ts"
+name = "image-upload"
+main = "src/index.ts"
 
 compatibility_date = "2022-11-22"
+account_id = "9f748abbcab5ab4cbf369153eccdf1cd"
+
+[vars]
+BASE_URL = "images.zsheng.app"
+
+[[r2_buckets]]
+binding = "IMAGE_BUCKET"
+bucket_name = "spaced-app-initial"
+preview_bucket_name = "spaced-app-initial"

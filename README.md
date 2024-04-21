@@ -1,58 +1,15 @@
-# Hono minimal project
+# Image Upload
 
-This is a minimal project with [Hono](https://github.com/honojs/hono/) for Cloudflare Workers.
+This Cloudflare worker is used to handle image uploads for [spaced](https://github.com/zsh-eng/spaced).
 
-## Features
+It is authenticated using a bearer token.
 
-- Minimal
-- TypeScript
-- Wrangler to develop and deploy.
-- [Jest](https://jestjs.io/ja/) for testing.
+When users upload images to spaced, the image is sent to the spaced backend,
+which will forward the request to this worker.
 
-## Usage
+The worker returns the URL of the uploaded image.
 
-Initialize
+## Format
 
-```
-npx create-cloudflare my-app https://github.com/honojs/hono-minimal
-```
-
-Install
-
-```
-yarn install
-```
-
-Develop
-
-```
-yarn dev
-```
-
-Test
-
-```
-yarn test
-```
-
-Deploy
-
-```
-yarn deploy
-```
-
-## Examples
-
-See: <https://github.com/honojs/examples>
-
-## For more information
-
-See: <https://honojs.dev>
-
-## Author
-
-Yusuke Wada <https://github.com/yusukebe>
-
-## License
-
-MIT
+Images should be uploaded to the `/upload` endpoint using a `PUT` request.
+The request should be a Multipart form with the image file as the `file` field.
